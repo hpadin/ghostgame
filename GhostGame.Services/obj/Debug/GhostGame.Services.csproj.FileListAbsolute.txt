@@ -44,3 +44,10 @@ C:\Users\herna\Desktop\GhostGame\GhostGame.Services\bin\Debug\Newtonsoft.Json.dl
 C:\Users\herna\Desktop\GhostGame\GhostGame.Services\bin\Debug\Newtonsoft.Json.xml
 C:\Users\herna\Desktop\GhostGame\GhostGame.Services\obj\Debug\GhostGame.Services.dll
 C:\Users\herna\Desktop\GhostGame\GhostGame.Services\obj\Debug\GhostGame.Services.pdb
+C:\repos\GhostGame.Services\bin\Debug\GhostGame.Services.dll
+C:\repos\GhostGame.Services\bin\Debug\GhostGame.Services.pdb
+C:\repos\GhostGame.Services\bin\Debug\Newtonsoft.Json.dll
+C:\repos\GhostGame.Services\bin\Debug\Newtonsoft.Json.xml
+C:\repos\GhostGame.Services\obj\Debug\GhostGame.Services.csprojResolveAssemblyReference.cache
+C:\repos\GhostGame.Services\obj\Debug\GhostGame.Services.dll
+C:\repos\GhostGame.Services\obj\Debug\GhostGame.Services.pdb

@@ -1,37 +1,27 @@
 h1 {
-    font-size: 1.2em;
-    color: #999;
-    color: #555;
+    font-size: 2em;
+    color: black;
     margin-bottom: 0;
   }
   h2 {
-    font-size: 2em;
+    font-size: 1em;
     margin-top: 0;
     padding-top: 0;
+    color: black;
   }
-  nav a {
-    padding: 5px 10px;
-    text-decoration: none;
-    margin-top: 10px;
-    display: inline-block;
-    background-color: #eee;
-    border-radius: 4px;
+
+  .div-content {
+    width: 80%;
+    padding-left: 10%;
   }
-  nav a:visited, a:link {
-    color: #607D8B;
+
+  .custom-card {  
+    background-color: lightgrey;
   }
-  nav a:hover {
-    color: #039be5;
-    background-color: #CFD8DC;
-  }
-  nav a.router-link-active {
-    color: #039be5;
-  }
-  .header-bar {
-    background-color: rgb(0,120,215);
-    height: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+  .card-title {
+    text-align: center;
+    font-weight: bold;  
   }
   
 
@@ -52,7 +42,7 @@ h1 {
   }
 
 .letter:hover { 
-    background-color: blue;
+    background-color: grey;
 }
 
 mat-spinner.small-spinner svg { width: 40px !important; height: 40px !important; }

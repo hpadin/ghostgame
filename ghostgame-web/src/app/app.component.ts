@@ -30,7 +30,6 @@ export class AppComponent {
       this.word = response.data.word;
       this.turn = response.data.gameStatus;
       this.message = response.data.message;
-
     })
   }
 
@@ -41,8 +40,6 @@ export class AppComponent {
       this.word = response.data.word;
       this.turn = response.data.gameStatus;
       this.message = response.data.message;
-
-      console.log(response);
     });
   }
 
@@ -52,8 +49,6 @@ export class AppComponent {
       this.word = response.data.word;
       this.turn = response.data.gameStatus;
       this.message = response.data.message;
-
-      console.log(response);
     });
   }
 
