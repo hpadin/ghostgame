@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\GameStatusEnum.cs" />
+    <Compile Include="Helpers\Logger.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Models\GameState.cs" />
     <Compile Include="Services\IGameService.cs" />

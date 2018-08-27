@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 /// <summary>
-/// IMPORTANT: Trie implementation copied from http://aspdotnetcodebook.blogspot.com/2016/12/autocomplete-using-trie.html only some adaptions made by HGP for an easier use
+/// IMPORTANT: Trie implementation based on: http://aspdotnetcodebook.blogspot.com/2016/12/autocomplete-using-trie.html 
 /// Summary description for Trie
 /// </summary>
 public class TrieSearch
@@ -87,6 +87,7 @@ public class TrieSearch
         return results;
     }
 
+    //HGP: Added
     public List<String> GetWinningWords(string pre)
     {
         List<String> results = new List<String>();
@@ -155,6 +156,7 @@ public class TrieSearch
         return curr.IsWord;
     }
 
+    // HGP: Added
     public bool ContainsAnOddWordInsideWithLengthGreaterThan(string word, int length)
     {
         Node curr = trie;
@@ -176,32 +178,5 @@ public class TrieSearch
         }
 
         return false;
-
-    }
-
-    public bool ContainsAWordInsideWithLengthGreaterThan(string word, int length)
-    {
-        Node curr = trie;
-        foreach (char c in word.ToCharArray())
-        {
-            if (curr.Children.ContainsKey(c))
-            {
-                curr = curr.Children[c];
-            }
-            else
-            {
-                return false;
-            }
-
-            if (curr.IsWord && curr.Prefix.Length > length && curr.Prefix != word )
-            {
-                return true;
-            }
-        }
-
-        return false;
-
-    }
-
-
+    }    
 }

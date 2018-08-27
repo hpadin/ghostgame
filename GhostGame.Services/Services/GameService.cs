@@ -1,4 +1,5 @@
-﻿using GhostGame.Services.Models;
+﻿using GhostGame.Services.Helpers;
+using GhostGame.Services.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -102,9 +103,16 @@ namespace GhostGame.Services
         {
             string filePath = AppDomain.CurrentDomain.BaseDirectory + @"Resources\gosthGameDict.txt";
             filePath = filePath.Replace("GhostGame.Api", "GhostGame.Services");
-            var lines = File.ReadLines(filePath);
+            try
+            { 
+                var lines = File.ReadLines(filePath);
+                wordsTree = new TrieSearch(lines);
+            }
+            catch (Exception e)
+            {
+                Logger.log(e.Message);
+            }
 
-            wordsTree = new TrieSearch(lines);
         }
     }
 }

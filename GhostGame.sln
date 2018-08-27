@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostGame.Api", "GhostGame.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostGame.Services", "GhostGame.Services\GhostGame.Services.csproj", "{F8243BA8-3F1E-463F-90A4-98C28561134E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GhostGameTesting", "GhostGameTesting\GhostGameTesting.csproj", "{2F5E5D09-744C-48C6-AED0-AAC4C4BE4AA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F8243BA8-3F1E-463F-90A4-98C28561134E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8243BA8-3F1E-463F-90A4-98C28561134E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8243BA8-3F1E-463F-90A4-98C28561134E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F5E5D09-744C-48C6-AED0-AAC4C4BE4AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5E5D09-744C-48C6-AED0-AAC4C4BE4AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5E5D09-744C-48C6-AED0-AAC4C4BE4AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5E5D09-744C-48C6-AED0-AAC4C4BE4AA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
