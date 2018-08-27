@@ -61,19 +61,18 @@ namespace GhostGame.Services
                 }
                 else
                 {
-                    List<string> loosingWords = resultWords.OrderByDescending(w => w.Length).ToList();
-                    List<string> loosingWordsFiltered = loosingWords.FindAll(s => (s.Length > gameState.word.Length) && !resultWords.Contains(gameState.word + s[gameState.word.Length]));
-
-                    string loosingWord;
-                    if (loosingWordsFiltered.Count == 0)
+                    List<string> loosingWords;
+                    List<string> loosingWordsWithoutOddWordsInside = resultWords.Where(s => !wordsTree.ContainsAnOddWordInsideWithLengthGreaterThan(s, 3)).ToList();
+                    if (loosingWordsWithoutOddWordsInside.Count == 0)
                     {
-                        loosingWord = loosingWords.First();
+                        loosingWords = resultWords.OrderByDescending(w => w.Length).ToList();
                     }
                     else
                     {
-                        loosingWord = loosingWordsFiltered.First();
+                        loosingWords = loosingWordsWithoutOddWordsInside.OrderByDescending(w => w.Length).ToList();
                     }
-                   
+
+                    string loosingWord = loosingWords.First();
                     gameState.word = gameState.word + loosingWord[gameState.word.Length];
                     gameState.setNextTurn();
                     gameState.message = "Human plays...";
