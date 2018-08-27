@@ -1,0 +1,24 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Optimal Ghost Game!
+  </h1>
+  <h2>
+    {{ word | uppercase}}
+  </h2>
+  
+  <div style="text-align:center">
+    <ul>
+      <li class="letter" *ngFor="let l of alphabet" (click)="letterClicked(l)"> {{l}}</li>
+    </ul>
+  </div>
+
+  <h2>
+    {{ message }}
+  </h2>
+
+  <button (click)="resetGame()">Reset Game</button>
+  
+  
+</div>
+

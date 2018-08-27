@@ -1,0 +1,26 @@
+@using SIR.Api.Areas.HelpPage.ModelDescriptions
+@model Type
+@{
+    ModelDescription modelDescription = ViewBag.modelDescription;
+    if (modelDescription is ComplexTypeModelDescription || modelDescription is EnumTypeModelDescription)
+    {
+        if (Model == typeof(Object))
+        {
+            @:Objeto (Object)
+        }
+        else
+        {
+            @Html.ActionLink(modelDescription.Name, "ResourceModel", "Help", new { modelName = modelDescription.Name }, null)
+        }
+    }
+    else if (modelDescription is CollectionModelDescription)
+    {
+        var collectionDescription = modelDescription as CollectionModelDescription;
+        var elementDescription = collectionDescription.ElementDescription;
+        @:Colección de (Collection of) @Html.DisplayFor(m => elementDescription.ModelType, "ModelDescriptionLink", new { modelDescription = elementDescription })
+    }
+    else
+    {
+        @Html.DisplayFor(m => modelDescription)
+    }
+}

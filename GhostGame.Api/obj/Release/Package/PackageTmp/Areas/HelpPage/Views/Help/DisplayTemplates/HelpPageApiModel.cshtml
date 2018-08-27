@@ -1,0 +1,91 @@
+@using System.Web.Http
+@using System.Web.Http.Description
+@using SIR.Api.Areas.HelpPage.Models
+@using SIR.Api.Areas.HelpPage.ModelDescriptions
+@model HelpPageApiModel
+
+@{
+    ApiDescription description = Model.ApiDescription;
+}
+<h2>@description.HttpMethod.Method @description.RelativePath</h2>
+<div>
+    <p><b>@description.Documentation</b></p>
+
+    <h3>Información Solicitada (Request Information)</h3>
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseParamURI" style="color: white;" role="button" aria-expanded="false" aria-controls="collapseParamURI">
+        Parametros URI (URI Parameters)
+    </a>
+    <div class="collapse" id="collapseParamURI">
+        @Html.DisplayFor(m => m.UriParameters, "Parameters")
+    </div>
+
+    <hr />
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseParamBody" style="color: white;" role="button" aria-expanded="false" aria-controls="collapseParamBody">
+        Parametros Data (Body Parameters)
+    </a>
+    <div class="collapse" id="collapseParamBody">
+        <p>@Model.RequestDocumentation</p>
+
+        @if (Model.RequestModelDescription != null)
+        {
+            @Html.DisplayFor(m => m.RequestModelDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.RequestModelDescription })
+            if (Model.RequestBodyParameters != null)
+            {
+                @Html.DisplayFor(m => m.RequestBodyParameters, "Parameters")
+            }
+        }
+        else
+        {
+            <p>Ninguno.</p>
+        }
+    </div>
+
+
+    @if (Model.SampleRequests.Count > 0)
+    {
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseRquestF" style="color: white;" role="button" aria-expanded="false" aria-controls="collapseRquestF">
+            Formato de solicitud (Request Formats)
+        </a>
+        <div class="collapse" id="collapseRquestF">
+            @Html.DisplayFor(m => m.SampleRequests, "Samples")
+        </div>
+    }
+
+    <h3>Información de respuesta (Response Information)</h3>
+
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseResourceDes" style="color: white;" role="button" aria-expanded="false" aria-controls="collapseResourceDes">
+        Descripción (Resource Description)
+    </a>
+    <div class="collapse" id="collapseResourceDes">
+        <p>@description.ResponseDescription.Documentation</p>
+
+        @if (Model.ResourceDescription != null)
+        {
+            @Html.DisplayFor(m => m.ResourceDescription.ModelType, "ModelDescriptionLink", new { modelDescription = Model.ResourceDescription })
+            if (Model.ResourceProperties != null)
+            {
+                @Html.DisplayFor(m => m.ResourceProperties, "Parameters")
+            }
+        }
+        else
+        {
+            <p>Ninguno.</p>
+        }
+    </div>
+
+
+
+    @if (Model.SampleResponses.Count > 0)
+    {   
+        <hr />
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseResponseF" style="color: white;" role="button" aria-expanded="false" aria-controls="collapseResponseF">
+            Formato de respuesta (Response Formats)
+        </a>
+        <div class="collapse" id="collapseResponseF">
+            @Html.DisplayFor(m => m.SampleResponses, "Samples")
+        </div>
+    }
+
+</div>
