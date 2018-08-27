@@ -1,6 +1,7 @@
 Optimal Ghost Game by Hernan Padin
 
 The solution is divided in:
+
 -> Server-side: it is based on a .Net API. To Run it open GhostGame.sln and run the solution with GhostGame.Api as starting project.
                 The API will start in port 52722 as default.
 
