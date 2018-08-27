@@ -9,8 +9,8 @@ namespace GhostGame.Services
 {
     public interface IGameService
     {
-        GameState processLetter(string letter);
-        GameState getCurrentState();
+        string getAlphabet();
+        GameState processLetter(string word, string letter);
         GameState resetGame();
     }
 }

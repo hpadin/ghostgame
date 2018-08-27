@@ -8,9 +8,8 @@ namespace GhostGame.Services.Enums
 {
     enum GameStatusEnum
     {
-        HumanTurn = 1,
-        ComputerTurn = 2,
-        HumanWin = 3,
-        ComputerWin = 4
+        GameInProgress = 1,
+        HumanWin = 2,
+        ComputerWin = 3
     }
 }

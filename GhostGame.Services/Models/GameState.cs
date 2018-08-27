@@ -14,21 +14,14 @@ namespace GhostGame.Services.Models
 
         public GameState()
         {
-            gameStatus = (int) Enums.GameStatusEnum.HumanTurn;
+            gameStatus = (int) Enums.GameStatusEnum.GameInProgress;
             word = String.Empty;
             message = "Human plays...";
         }
 
-        public void setNextTurn()
+        public void setGameInProgress()
         {
-            if (gameStatus == (int)Enums.GameStatusEnum.HumanTurn)
-            {
-                gameStatus = (int)Enums.GameStatusEnum.ComputerTurn;
-            }
-            else
-            {
-                gameStatus = (int)Enums.GameStatusEnum.HumanTurn;
-            }
+            gameStatus = (int)Enums.GameStatusEnum.GameInProgress;
         }
 
         public void setComputerWin()

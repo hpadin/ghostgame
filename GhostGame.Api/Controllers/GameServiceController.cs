@@ -18,7 +18,7 @@ namespace GhostGame.Api.Controllers
             _gameService = gameService;
         }
 
-        #region Alphabet
+        #region Initialization
         /// <summary>
         /// Retrieves alphabet to display
         /// </summary>
@@ -27,39 +27,11 @@ namespace GhostGame.Api.Controllers
         [Route("GetAlphabet")]
         public HttpResponseMessage GetAlphabet()
         {
-            return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = "abcdefghijklmnopqrstuvwxyz" });
-        }
-        #endregion
-
-        #region GameMove
-
-        /// <summary>
-        /// Retrieves alphabet to display
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("GetGameState")]
-        public HttpResponseMessage GetGameState()
-        {
-            GameState gameState = _gameService.getCurrentState();
-            return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = gameState });
+            return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = _gameService.getAlphabet() });
         }
 
         /// <summary>
-        /// Retrieves alphabet to display
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        [Route("ProcessLetter")]
-        public HttpResponseMessage ProcessLetter(string pLetter)
-        {
-            GameState gameState = _gameService.processLetter(pLetter.ToUpper());
-            return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = gameState });
-        }
-        #endregion
-
-        /// <summary>
-        /// Reset Game
+        /// Reset Game and retrieves reseted state of game
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -69,6 +41,23 @@ namespace GhostGame.Api.Controllers
             GameState gameState = _gameService.resetGame();
             return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = gameState });
         }
+        #endregion
 
+
+        #region GameMoves
+
+        /// <summary>
+        /// Process a game move and retrieves state of the game
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("ProcessLetter")]
+        public HttpResponseMessage ProcessLetter(string pWord, string pLetter)
+        {
+            string word = (pWord == null) ? "" : pWord;
+            GameState gameState = _gameService.processLetter(word.ToUpper(), pLetter.ToUpper());
+            return Request.CreateResponse(HttpStatusCode.OK, new { success = true, data = gameState });
+        }
+        #endregion
     }
 }

@@ -8,7 +8,6 @@ namespace GhostGame.Services
 {
     public class GameService : IGameService
     {
-        GameState gameState;
         TrieSearch wordsTree;
 
         public GameService()
@@ -17,10 +16,16 @@ namespace GhostGame.Services
             resetGame();
         }
 
-        public GameState processLetter(string letter)
+        public string getAlphabet()
         {
-            gameState.word = gameState.word + letter;
-            gameState.setNextTurn();
+            return "abcdefghijklmnopqrstuvwxyz".ToUpper();
+        }
+
+        public GameState processLetter(string word, string letter)
+        {
+            GameState gameState = new GameState();
+            gameState.word = word + letter;
+            gameState.setGameInProgress();
 
             if (gameState.word.Length >= 4 && wordsTree.IsPrefixAWord(gameState.word))
             {
@@ -37,6 +42,7 @@ namespace GhostGame.Services
                 //HGP: Letter entered doesnt have a word result...Human loses
                 gameState.setComputerWin();
                 gameState.message = "Computer wins: it doesn't exist a word starting by: " + gameState.word;
+                gameState.setComputerWin();
                 return gameState;
             }
             else
@@ -55,7 +61,6 @@ namespace GhostGame.Services
 
                     gameState.word = gameState.word + wordToFollow[gameState.word.Length];
                     gameState.message = "Human plays...";
-                    gameState.setNextTurn();
 
                     return gameState;
                 }
@@ -74,7 +79,6 @@ namespace GhostGame.Services
 
                     string loosingWord = loosingWords.First();
                     gameState.word = gameState.word + loosingWord[gameState.word.Length];
-                    gameState.setNextTurn();
                     gameState.message = "Human plays...";
 
                     if (resultWords.Contains(gameState.word) && gameState.word.Length >= 4)
@@ -82,21 +86,16 @@ namespace GhostGame.Services
                         //HGP: Letter entered leads to an existing word...Computer loses
                         gameState.setHumanWin();
                         gameState.message = "Human wins...";
+                        gameState.setHumanWin();
                     }
                     return gameState;
                 }
             }
         }
 
-        public GameState getCurrentState()
-        {
-            return gameState;
-        }
-
         public GameState resetGame()
         {
-            gameState = new GameState();
-            return gameState;
+            return new GameState();
         }
 
         public void loadDictionary()

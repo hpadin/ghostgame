@@ -20,8 +20,8 @@ export class GameService {
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 
-  processLetter(letter : string) {
-    return this.http.get(this.apiUrl + 'ProcessLetter?pLetter=' + letter)
+  processLetter(word : string, letter : string) {
+    return this.http.get(this.apiUrl + 'ProcessLetter?pWord=' + word + '&pLetter=' + letter)
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 

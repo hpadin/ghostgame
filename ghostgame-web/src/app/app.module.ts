@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { GameService } from './game.service';
 import { AppComponent } from './app.component';
+import { GameComponent } from './game.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -47,7 +48,8 @@ import {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent
   ],
   imports: [
     HttpClientModule,
@@ -90,6 +92,6 @@ import {
     BrowserAnimationsModule
   ],
   providers: [GameService],
-  bootstrap: [AppComponent]
+  bootstrap: [GameComponent]
 })
 export class AppModule { }

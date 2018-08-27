@@ -10,21 +10,15 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:GhostGame.Api.Controllers.GameServiceController.GetGameState">
-            <summary>
-            Retrieves alphabet to display
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:GhostGame.Api.Controllers.GameServiceController.ProcessLetter(System.String)">
-            <summary>
-            Retrieves alphabet to display
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:GhostGame.Api.Controllers.GameServiceController.ResetGame">
             <summary>
-            Reset Game
+            Reset Game and retrieves reseted state of game
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GhostGame.Api.Controllers.GameServiceController.ProcessLetter(System.String,System.String)">
+            <summary>
+            Process a game move and retrieves state of the game
             </summary>
             <returns></returns>
         </member>
