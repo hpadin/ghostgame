@@ -1,7 +1,6 @@
 C:\repos\GhostGameTesting\bin\Debug\GhostGameTesting.dll
 C:\repos\GhostGameTesting\bin\Debug\GhostGameTesting.pdb
 C:\repos\GhostGameTesting\bin\Debug\GhostGame.Services.dll
-C:\repos\GhostGameTesting\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\repos\GhostGameTesting\bin\Debug\GhostGame.Services.pdb
 C:\repos\GhostGameTesting\obj\Debug\GhostGameTesting.csprojResolveAssemblyReference.cache
 C:\repos\GhostGameTesting\obj\Debug\GhostGameTesting.dll

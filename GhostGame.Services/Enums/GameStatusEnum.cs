@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GhostGame.Services.Enums
 {
-    enum GameStatusEnum
+    public enum GameStatusEnum
     {
         GameInProgress = 1,
         HumanWin = 2,

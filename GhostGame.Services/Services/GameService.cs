@@ -69,6 +69,8 @@ namespace GhostGame.Services
                 {
                     List<string> loosingWords;
                     //Look for the words that doesnt contain an odd word inside so the game it doesnt finish earlier
+
+                    //TODO HGP: This search can be optimized
                     List<string> loosingWordsWithoutOddWordsInside = resultWords.Where(s => !wordsTree.ContainsAnOddWordInsideWithLengthGreaterThan(s, 3)).ToList();
                     if (loosingWordsWithoutOddWordsInside.Count == 0)
                     {
@@ -113,7 +115,11 @@ namespace GhostGame.Services
             {
                 Logger.log(e.Message);
             }
+        }
 
+        public void setWordsTrie(TrieSearch trie)
+        {
+            wordsTree = trie;
         }
     }
 }
