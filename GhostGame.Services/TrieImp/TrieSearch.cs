@@ -112,6 +112,7 @@ public class TrieSearch
     }
 
     // HGP: Added
+    // Considered winning words the ones with an odd length
     private void FindAllWinningWords(Node n, List<String> results)
     {
         if (n.IsWord && n.Prefix.Length > 3 && !(n.Prefix.Length % 2 == 0))
@@ -138,6 +139,7 @@ public class TrieSearch
     }
 
     // HGP: Added
+    // Retrieves true if word is an existing word in the trie
     public bool IsPrefixAWord(string word)
     {
         Node curr = trie;

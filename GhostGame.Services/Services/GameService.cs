@@ -50,7 +50,7 @@ namespace GhostGame.Services
             {
                 //HGP: Letter entered is valid...Computer plays next letter
 
-                //HGP: Winning words would be the ones with an odd length...
+                //HGP: Ask for winning words to the trie
                 List<string> winningWords = wordsTree.GetWinningWords(gameState.word);
 
                 // it should play randomly among all its winning movements;
@@ -68,6 +68,7 @@ namespace GhostGame.Services
                 else
                 {
                     List<string> loosingWords;
+                    //Look for the words that doesnt contain an odd word inside so the game it doesnt finish earlier
                     List<string> loosingWordsWithoutOddWordsInside = resultWords.Where(s => !wordsTree.ContainsAnOddWordInsideWithLengthGreaterThan(s, 3)).ToList();
                     if (loosingWordsWithoutOddWordsInside.Count == 0)
                     {
@@ -82,7 +83,7 @@ namespace GhostGame.Services
                     gameState.word = gameState.word + loosingWord[gameState.word.Length];
                     gameState.message = "Human plays...";
 
-                    if (resultWords.Contains(gameState.word) && gameState.word.Length >= 4)
+                    if (wordsTree.IsPrefixAWord(gameState.word) && gameState.word.Length >= 4)
                     {
                         //HGP: Letter entered leads to an existing word...Computer loses
                         gameState.setHumanWin();
