@@ -24,7 +24,7 @@
             {{ word | uppercase}}
         </h1>
     </mat-card>
-    <mat-card>
+    <mat-card *ngIf="!isLoading">
         <h2>
             <i class="material-icons">
                 trending_flat
@@ -32,15 +32,18 @@
             {{ message }}
         </h2>
     </mat-card>
-    <mat-card>
+    <mat-card *ngIf="!isLoading">
         <h2>
           Select a letter:
         </h2>
-      <ul>
+        <ul>
           <li class="letter" *ngFor="let l of alphabet" (click)="letterClicked(l)"> {{l}}</li>
-      </ul>
+        </ul>
     </mat-card>
-    <mat-card>
-        <button (click)="resetGame()">Reset Game</button>
+    <mat-card *ngIf="isLoading">
+        <mat-spinner style="margin:0 auto;" mode="indeterminate"></mat-spinner>
     </mat-card>
+    <mat-card class="button-card">
+        <button mat-button class="button" (click)="resetGame()">Reset Game</button>
+    </mat-card>  
 </div>

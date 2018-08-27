@@ -6,27 +6,27 @@ import { IGameStatus } from '../interfaces/igamestatus';
 
 @Injectable()
 export class GameService {
-    private apiUrl = 'http://localhost:52722/api/';
+    private apiUrl = 'http://localhost:52722/api/GameService/';
 
   constructor(private http: HttpClient) {}
 
   getAlphabet() {
-    return this.http.get(this.apiUrl + 'GameService/GetAlphabet')
+    return this.http.get(this.apiUrl + 'GetAlphabet')
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 
   getGameState() {
-    return this.http.get(this.apiUrl + 'GameService/GetGameState')
+    return this.http.get(this.apiUrl + 'GetGameState')
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 
   processLetter(letter : string) {
-    return this.http.get(this.apiUrl + 'GameService/ProcessLetter?pLetter=' + letter)
+    return this.http.get(this.apiUrl + 'ProcessLetter?pLetter=' + letter)
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 
   resetGame() {
-    return this.http.get(this.apiUrl + 'GameService/ResetGame')
+    return this.http.get(this.apiUrl + 'ResetGame')
     .pipe(map(data => data, catchError(this.handleError))).toPromise();
   }
 

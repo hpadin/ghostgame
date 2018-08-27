@@ -1,4 +1,4 @@
-h1 {
+  h1 {
     font-size: 2em;
     color: black;
     margin-bottom: 0;
@@ -24,6 +24,14 @@ h1 {
     font-weight: bold;  
   }
   
+  .button-card {
+    padding-left: 44%;
+  }
+  .button {
+    background-color: grey;
+    color:black;
+    font-weight: bold;
+  }
 
 .letter {
     display: inline-block;

@@ -11,44 +11,51 @@ export class AppComponent {
   title = 'Ghost Game Challenge!';
   alphabet = null;
   word = '';
-  turn;
+  status;
   message = '';
+  isLoading;
 
   constructor( private gameService: GameService) {
   }
 
   ngOnInit(): void {
-
+    this.isLoading = true;
     this.gameService.getAlphabet().then(data => {
       let response : any = data;
       this.alphabet = response.data.split("");
+      this.isLoading = false;
     });
 
-    this.gameService.getGameState().then(data => {
+    this.isLoading = true;
+    this.gameService.getGameState().then(data => {      
       let response : any = data;
       console.log(response);
       this.word = response.data.word;
-      this.turn = response.data.gameStatus;
+      this.status = response.data.gameStatus;
       this.message = response.data.message;
+      this.isLoading = false;
     })
   }
 
   letterClicked(letter : string) {
-
+    this.isLoading = true;
     this.gameService.processLetter(letter).then(data => {
       let response : any = data;
       this.word = response.data.word;
-      this.turn = response.data.gameStatus;
+      this.status = response.data.gameStatus;
       this.message = response.data.message;
+      this.isLoading = false;
     });
   }
 
   resetGame(){
+    this.isLoading = true;
     this.gameService.resetGame().then(data => {
       let response : any = data;
       this.word = response.data.word;
-      this.turn = response.data.gameStatus;
+      this.status = response.data.gameStatus;
       this.message = response.data.message;
+      this.isLoading = false;
     });
   }
 
